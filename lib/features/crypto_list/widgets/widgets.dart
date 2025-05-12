@@ -1,0 +1,1 @@
+export 'crytpo_coin_tile.dart';
