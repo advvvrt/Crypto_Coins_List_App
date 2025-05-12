@@ -18,3 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ![image](https://github.com/user-attachments/assets/d5d6cf2c-2a0c-44d1-ac43-bfbb8b8cd586)
 
+The app was created with help youtuber https://www.youtube.com/@frezycode
