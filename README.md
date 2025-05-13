@@ -1,4 +1,4 @@
-# gosuslugi
+# Crypto Coins List App
 
 A new Flutter project.
 
@@ -15,5 +15,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-![image](https://github.com/user-attachments/assets/f7afe962-ce8f-4a2e-8520-bf986ac20e7c)
 
+![image](https://github.com/user-attachments/assets/d5d6cf2c-2a0c-44d1-ac43-bfbb8b8cd586)
+
+The app was created with help youtuber https://www.youtube.com/@frezycode
