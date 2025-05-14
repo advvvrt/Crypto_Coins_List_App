@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -26,7 +28,13 @@ class _cryptoListScreenState extends State<cryptoListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Crypto App'), centerTitle: true),
-      body: BlocBuilder<CryptoListBloc, CryptoListState>(
+      body: RefreshIndicator(
+        onRefresh: () async {
+          final completer = Completer();
+          _cryptoListBloc.add(LoadCryptoList(completer: completer));
+          return completer.future;
+        },
+        child: BlocBuilder<CryptoListBloc, CryptoListState>(
         bloc: _cryptoListBloc,
         builder: (context, state) {
           if (state is CryptoListLoaded) {
@@ -54,12 +62,22 @@ class _cryptoListScreenState extends State<cryptoListScreen> {
                       'Please try again later',
                     style: darktheme.textTheme.headlineSmall?.copyWith(fontSize: 16),
                   ),
+                  const SizedBox(height: 30),
+                  TextButton(
+                      onPressed: () {
+                        _cryptoListBloc.add(LoadCryptoList());
+                      },
+                      child: const Text(
+                          'Try again'
+                      ),
+                  ),
                 ],
               ),
             );
           }
           return const Center(child: CircularProgressIndicator());
         },
+      ),
       ),
       // (_cryptoCoinsList == null)
       //     ? const Center(child: CircularProgressIndicator())
